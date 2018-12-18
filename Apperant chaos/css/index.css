@@ -1,0 +1,144 @@
+body{
+    margin-top: 0;
+    margin-left: 0;
+    font-family: 'Monoton', sans-serif;
+    font-weight: 550;
+}
+.shape{
+    filter:grayscale(100%);
+    transition:0.5s;
+}
+.shape:hover{
+    filter:grayscale(0%);
+}
+.grey{
+    color:black !important;
+    /*filter: grayscale(100%) !important;*/
+    transition:0.5s;
+}
+.shape-text{
+    z-index: 1;
+    margin: 0;
+    padding:2%;
+    text-align:center;
+    /*mix-blend-mode: overlay;*/
+    color:rgb(255, 0, 0);
+    text-transform: uppercase;
+    text-shadow: 0 5px 5px;
+    pointer-events: none;
+}
+#shape-textNr1{
+    position: absolute;
+    top:12vh;
+    left: 35%;
+    transform: translateX(-50%);
+    font-size: 7vh;
+    filter:grayscale(0%);
+}
+#shape-textNr2{
+    position: absolute;
+    top:20vh;
+    left: 75vw;
+    transform: translateX(-50%);
+    font-size: 7vh;
+}
+#shape-textNr3{
+    position: absolute;
+    top:49vh;
+    left: 16vw;
+    transform: translateX(-50%);
+    font-size: 6vh;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    white-space: nowrap;
+}
+#shape-textNr4{
+    position: absolute;
+    top:55vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    font-size: 7vh;
+}
+#shape-textNr5{
+    position: absolute;
+    top:110vh;
+    left: 55vw;
+    transform: translateX(-50%);
+    font-size: 7vh;
+}
+#shape-textNr6{
+    position: absolute;
+    top:175vh;
+    left: 25vw;
+    transform: translateX(-50%);
+    font-size: 6vh;
+}
+#shape-textNr7{
+    position: absolute;
+    top:165vh;
+    left: 70vw;
+    transform: translateX(-50%);
+    font-size: 6vh;
+}
+
+#shapeNr1{
+    position:absoulte;
+    margin-left:10vw;
+    margin-top:1vh;
+    background-image: url("../img/bilden.jpg"); /*Make a image that fits...*/
+    width: 50vw;
+    height: 40vh;
+}
+#shapeNr2{
+    position:absoulte;
+    margin-left:60.5vw;
+    margin-top:-40vh;
+    background-image: url("../img/bilden.jpg"); /*Make a image that fits...*/
+    width: 29.5vw;
+    height: 80vh;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 50%);
+}
+#shapeNr3{
+    position:absoulte;
+    margin-left:10vw;
+    margin-top:-39vh;
+    background-image: url("../img/bilden.jpg"); /*Make a image that fits...*/
+    width: 20vw;
+    height: 120vh;
+}
+#shapeNr4{
+    position:absoulte;
+    margin-left:30.5vw;
+    margin-top:-120vh;
+    background-image: url("../img/bilden.jpg"); /*Make a image that fits...*/
+    width: 59.5vw;
+    height: 40vh;
+    clip-path: polygon(0% 0%, 50.5% 0%, 100% 100%, 0% 100%);
+}
+#shapeNr5{
+    position:absoulte;
+    margin-left:30.5vw;
+    margin-top: 1vh;
+    background-image: url("../img/bilden.jpg"); /*Make a image that fits...*/
+    width: 59.5vw;
+    height: 79vh;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 40.5% 100%, 0% 100%);
+}
+#shapeNr6{
+    position:absoulte;
+    margin-left:10vw;
+    margin-top:1vh;
+    background-image: url("../img/bilden.jpg"); /*Make a image that fits...*/
+    width: 44vw;
+    height: 40vh;
+    clip-path: polygon(0% 0%, 100% 0%, 49% 100%, 0% 100%);
+}
+#shapeNr7{
+    position:absoulte;
+    margin-left:32.5vw;
+    margin-top:-103vh;
+    background-image: url("../img/bilden.jpg"); /*Make a image that fits...*/
+    width: 57.5vw;
+    height: 102.5vh;
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+}

@@ -1,0 +1,46 @@
+$(document).ready(function(){
+    $("#shapeNr1").mouseover(function(){
+        $("#shape-textNr1").addClass("grey");
+    }).mouseout(function(){
+        $("#shape-textNr1").removeClass("grey");
+    })
+});
+$(document).ready(function(){
+    $("#shapeNr2").mouseover(function(){
+        $("#shape-textNr2").addClass("grey");
+    }).mouseout(function(){
+        $("#shape-textNr2").removeClass("grey");
+    })
+});
+$(document).ready(function(){
+    $("#shapeNr3").mouseover(function(){
+        $("#shape-textNr3").addClass("grey");
+    }).mouseout(function(){
+        $("#shape-textNr3").removeClass("grey");
+    })
+});
+$(document).ready(function(){
+    $("#shapeNr4").mouseover(function(){
+        $("#shape-textNr4").addClass("grey");
+    }).mouseout(function(){
+        $("#shape-textNr4").removeClass("grey");
+    })
+});$(document).ready(function(){
+    $("#shapeNr5").mouseover(function(){
+        $("#shape-textNr5").addClass("grey");
+    }).mouseout(function(){
+        $("#shape-textNr5").removeClass("grey");
+    })
+});$(document).ready(function(){
+    $("#shapeNr6").mouseover(function(){
+        $("#shape-textNr6").addClass("grey");
+    }).mouseout(function(){
+        $("#shape-textNr6").removeClass("grey");
+    })
+});$(document).ready(function(){
+    $("#shapeNr7").mouseover(function(){
+        $("#shape-textNr7").addClass("grey");
+    }).mouseout(function(){
+        $("#shape-textNr7").removeClass("grey");
+    })
+});

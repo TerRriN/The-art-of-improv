@@ -1,0 +1,39 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{ 
+    background-color: black;
+    font-family: 'HeydingsCommonIconsRegular', Helvetida Neue, sans-serif;
+}
+.bg{
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: .25s;
+    pointer-events: none;
+}
+li{  
+    list-style:none;
+}
+li a{
+
+    display:block;
+    width:19%;
+    height:100vh;
+    background-color: white;
+    text-align: center;
+    float: left;
+    margin-left:1%;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%, -50% 100%);
+}
+li a:hover{
+}
+  .menu li:first-child a { }
+  .menu li:nth-child(2) a {  z-index: 1 !important;}
+  .menu li:nth-child(3) a {  z-index: 2 !important;}
+  .menu li:nth-child(4) a {  background:#6dcaff !important;}
+  .menu li:nth-child(5) a {  background:#ec6dff !important;}

@@ -12,15 +12,21 @@ body{
     clip-path: polygon(30% 0%, 80% 0%, 50% 100%, 0% 100%);
     transition: 0.5s;
 }
-.spec1{left:1%;}
-.spec2{left:23%;}
-.spec3{left:45%;}
-.spec4{left:67%;}
+.position1{left:1%;}
+.position2{left:23%;}
+.position3{left:45%;}
+.position4{left:67%;}
 
-.spec1:hover{
-    background-color: red;
-    left:10%;
+.position1:hover{background-color: red;}   
+.position2:hover{background-color: yellow;}
+.position3:hover{background-color: green;}
+.position4:hover{background-color: blue;}
+
+.grow{
+    left:0;
+    width:100%;
+    clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
 }
-.spec2:hover{background-color: yellow;}
-.spec3:hover{background-color: green;}
-.spec4:hover{background-color: blue;}
+.shrink{
+    width:10%;
+}

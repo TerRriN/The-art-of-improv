@@ -1,4 +1,32 @@
-<script>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mouseover demo</title>
+  <style>
+ .shape {
+    width: 40%;
+    height: 120px;
+    margin: 15px 15px;
+    background-color: blue;
+    float: left;
+    transition: 0.3s;
+  }
+  .toggle{
+      width:50%;
+      background-color: black;
+  }
+
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <div class="shape position1"></div>
+    <div class="shape position2"></div>
+    <div class="shape position3"></div>
+    <div class="shape position4"></div>
+ 
+<script> 
 $( ".position1" ).mouseenter(function() {
     $(".position2").toggleClass("toggle");
     $(".position3").toggleClass("toggle");
@@ -43,3 +71,10 @@ $( ".position4" ).mouseenter(function() {
     $(".position3").toggleClass("toggle");
   });
 </script>
+ 
+</body>
+</html>
+
+<!--$(".login-btn").click(function(){
+    $(".login-dropdown").toggleClass("show");
+  });-->

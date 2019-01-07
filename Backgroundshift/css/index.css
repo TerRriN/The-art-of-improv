@@ -12,6 +12,20 @@ body{
     clip-path: polygon(30% 0%, 80% 0%, 50% 100%, 0% 100%);
     transition: 0.5s;
 }
+.btn{
+    position: fixed;
+    background-color:green; 
+    width: 50px;
+    height:50px;
+    top:50vh;
+    transform: translateY(-50);
+}
+.btn:hover{visibility: hidden;}
+.button1{left:16%;}
+.button2{left:38%;}
+.button3{left:60%;}
+.button4{left:82%;}
+
 .position1{left:1%;}
 .position2{left:23%;}
 .position3{left:45%;}
@@ -23,10 +37,10 @@ body{
 .position4:hover{background-color: blue;}
 
 .grow{
-    left:0;
-    width:100%;
+    width:80%;
     clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
 }
 .shrink{
+    clip-path: polygon(60% 0%, 100% 0%, 40% 100%, 0% 100%);
     width:10%;
 }

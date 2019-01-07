@@ -6,16 +6,24 @@ body{
 }
 .shape{
     position:absolute;
-    width:40%;
+    width:21%;
     height:100vh;
     background-color:white;
-    clip-path: polygon(30% 0%, 80% 0%, 50% 100%, 0% 100%);
+    transform: skewX(-14deg);
     transition: 0.5s;
 }
-.position1{left:1%;}
-.position2{left:23%;}
-.position3{left:45%;}
-.position4{left:67%;}
+.position1{left:6.5%;}
+.position2{left:28.5%;}
+.position3{left:50.5%;}
+.position4{left:72.5%;}
+
+.right1{left:77%;}
+.right2{left:84.5%;}
+.right3{left:92%;}
+
+.left1{left:14%;}
+.left2{left:21.5%;}
+.left3{left:29%;}
 
 .position1:hover{background-color: red;}   
 .position2:hover{background-color: yellow;}
@@ -23,10 +31,8 @@ body{
 .position4:hover{background-color: blue;}
 
 .grow{
-    left:0;
-    width:100%;
-    clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+    width:70%;
 }
 .shrink{
-    width:10%;
+    width:7%;
 }

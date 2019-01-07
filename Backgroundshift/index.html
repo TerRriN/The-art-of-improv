@@ -16,54 +16,54 @@
 <script>
 $( ".position1").mouseenter(function() {
 $(".position1").toggleClass("grow");
-$(".position2").toggleClass("shrink");
-$(".position3").toggleClass("shrink");
-$(".position4").toggleClass("shrink");
+$(".position2").toggleClass("shrink right1");
+$(".position3").toggleClass("shrink right2");
+$(".position4").toggleClass("shrink right3");
 })
 .mouseleave(function() {
 $(".position1").toggleClass("grow");
-$(".position2").toggleClass("shrink");
-$(".position3").toggleClass("shrink");
-$(".position4").toggleClass("shrink");
+$(".position2").toggleClass("shrink right1");
+$(".position3").toggleClass("shrink right2");
+$(".position4").toggleClass("shrink right3");
 });
 ///////////////////////////////////////////////
 $( ".position2").mouseenter(function() {
 $(".position1").toggleClass("shrink");
-$(".position2").toggleClass("grow");
-$(".position3").toggleClass("shrink");
-$(".position4").toggleClass("shrink");
+$(".position2").toggleClass("grow left1");
+$(".position3").toggleClass("shrink right2");
+$(".position4").toggleClass("shrink right3");
 })
 .mouseleave(function() {
 $(".position1").toggleClass("shrink");
-$(".position2").toggleClass("grow");
-$(".position3").toggleClass("shrink");
-$(".position4").toggleClass("shrink");
+$(".position2").toggleClass("grow left1");
+$(".position3").toggleClass("shrink right2");
+$(".position4").toggleClass("shrink right3");
 });
 ///////////////////////////////////////////////
 $( ".position3").mouseenter(function() {
 $(".position1").toggleClass("shrink");
-$(".position2").toggleClass("shrink");
-$(".position3").toggleClass("grow");
-$(".position4").toggleClass("shrink");
+$(".position2").toggleClass("shrink left1");
+$(".position3").toggleClass("grow left2");
+$(".position4").toggleClass("shrink right3");
 })
 .mouseleave(function() {
 $(".position1").toggleClass("shrink");
-$(".position2").toggleClass("shrink");
-$(".position3").toggleClass("grow");
-$(".position4").toggleClass("shrink");
+$(".position2").toggleClass("shrink left1");
+$(".position3").toggleClass("grow left2");
+$(".position4").toggleClass("shrink right3");
 });
 ///////////////////////////////////////////////
 $( ".position4").mouseenter(function() {
 $(".position1").toggleClass("shrink");
-$(".position2").toggleClass("shrink");
-$(".position3").toggleClass("shrink");
-$(".position4").toggleClass("grow");
+$(".position2").toggleClass("shrink left1");
+$(".position3").toggleClass("shrink left2");
+$(".position4").toggleClass("grow left3");
 })
 .mouseleave(function() {
 $(".position1").toggleClass("shrink");
-$(".position2").toggleClass("shrink");
-$(".position3").toggleClass("shrink");
-$(".position4").toggleClass("grow");
+$(".position2").toggleClass("shrink left1");
+$(".position3").toggleClass("shrink left2");
+$(".position4").toggleClass("grow left3");
 });
 </script>
 </body>

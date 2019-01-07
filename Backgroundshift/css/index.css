@@ -1,46 +1,55 @@
 body{
     margin:0;
     padding:0; 
-    background-color: black;
+    background-color:black;
     overflow: hidden;
 }
 .shape{
     position:absolute;
-    width:40%;
+    width:21%;
     height:100vh;
-    background-color:white;
-    clip-path: polygon(30% 0%, 80% 0%, 50% 100%, 0% 100%);
+    transform: skewX(-14deg);
     transition: 0.5s;
 }
-.btn{
-    position: fixed;
-    background-color:green; 
-    width: 50px;
-    height:50px;
-    top:50vh;
-    transform: translateY(-50);
+.text{
+    display:none;
+    color:white;
+    width:40%;
+    margin:0 0;
+    padding:2% 10% 7% 4%;
+    border-radius: 0 0 100% 0;
+    box-shadow: 10px 10px 100px 100px black;
+    background-color: black;
+    opacity: 0.9;
 }
-.btn:hover{visibility: hidden;}
-.button1{left:16%;}
-.button2{left:38%;}
-.button3{left:60%;}
-.button4{left:82%;}
+.display{display:inline-block;}
 
-.position1{left:1%;}
-.position2{left:23%;}
-.position3{left:45%;}
-.position4{left:67%;}
+.position1{left:6.5%;}
+.position2{left:28.5%;}
+.position3{left:50.5%;}
+.position4{left:72.5%;}
 
-.position1:hover{background-color: red;}   
-.position2:hover{background-color: yellow;}
-.position3:hover{background-color: green;}
-.position4:hover{background-color: blue;}
+/*Siffran i right visar vilken .position den tillhör*/
+.right2{left:87%;}
+.right3{left:93.5%;}
+.right4{left:100%;}
+
+.righta{left:87.5%;}
+.rightb{left:94%;}
+
+.left1{left:-6%;}
+.left2{left:0.5%;}
+.left3{left:7%;}
+.left4{left:13.5%;}
+
+.position1{background-image: url("../img/mustang.jpg");}   
+.position2{background-image: url("../img/bilden.jpg");}
+.position3{background-image: url("../img/mustang.jpg");}
+.position4{background-image: url("../img/bilden.jpg");}
 
 .grow{
     width:80%;
-    clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
 }
 .shrink{
-    clip-path: polygon(60% 0%, 100% 0%, 40% 100%, 0% 100%);
-    width:10%;
+    width:6%;
 }

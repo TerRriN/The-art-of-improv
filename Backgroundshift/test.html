@@ -1,80 +1,110 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>mouseover demo</title>
-  <style>
- .shape {
-    width: 40%;
-    height: 120px;
-    margin: 15px 15px;
-    background-color: blue;
-    float: left;
-    transition: 0.3s;
-  }
-  .toggle{
-      width:50%;
-      background-color: black;
-  }
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+<style>
+body{
+    margin:0;
+    padding:0; 
+    background-color: black;
+    overflow: hidden;
+}
+.shape{
+    position:absolute;
+    width:21%;
+    height:100vh;
+    background-color:white;
+    transform: skewX(-14deg);
+    transition: 0.5s;
+}
+.position1{left:6.5%;}
+.position2{left:28.5%;}
+.position3{left:50.5%;}
+.position4{left:72.5%;}
 
-  </style>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+.right1{left:77%;}
+.right2{left:84.5%;}
+.right3{left:92%;}
+
+.left1{left:14%;}
+.left2{left:21.5%;}
+.left3{left:29%;}
+
+.position1:hover{background-color: red;}   
+.position2:hover{background-color: yellow;}
+.position3:hover{background-color: green;}
+.position4:hover{background-color: blue;}
+
+.grow{
+    width:70%;
+}
+.shrink{
+    width:7%;
+}
+</style>
 </head>
 <body>
-    <div class="shape position1"></div>
-    <div class="shape position2"></div>
-    <div class="shape position3"></div>
-    <div class="shape position4"></div>
- 
-<script> 
-$( ".position1" ).mouseenter(function() {
-    $(".position2").toggleClass("toggle");
-    $(".position3").toggleClass("toggle");
-    $(".position4").toggleClass("toggle");
-  })
-  .mouseleave(function() {
-    $(".position2").toggleClass("toggle");
-    $(".position3").toggleClass("toggle");
-    $(".position4").toggleClass("toggle");
-  });
+        <div class="shape position1"></div>
+        <div class="shape position2"></div>
+        <div class="shape position3"></div>
+        <div class="shape position4"></div>
+    <!--fixa en knapp som man hovrar.
+    när man hovrar knappen, eller inre containern
+    ska den yttre containern expandera, för att slippa
+    dra bort musen från skärmen...-->
+<script>
+$( ".position1").mouseenter(function() {
+$(".position1").toggleClass("grow");
+$(".position2").toggleClass("shrink right1");
+$(".position3").toggleClass("shrink right2");
+$(".position4").toggleClass("shrink right3");
+})
+.mouseleave(function() {
+$(".position1").toggleClass("grow");
+$(".position2").toggleClass("shrink right1");
+$(".position3").toggleClass("shrink right2");
+$(".position4").toggleClass("shrink right3");
+});
 ///////////////////////////////////////////////
-$( ".position2" ).mouseenter(function() {
-    $(".position1").toggleClass("toggle");
-    $(".position3").toggleClass("toggle");
-    $(".position4").toggleClass("toggle");
-  })
-  .mouseleave(function() {
-    $(".position1").toggleClass("toggle");
-    $(".position3").toggleClass("toggle");
-    $(".position4").toggleClass("toggle");
-  });
+$( ".position2").mouseenter(function() {
+$(".position1").toggleClass("shrink");
+$(".position2").toggleClass("grow left1");
+$(".position3").toggleClass("shrink right2");
+$(".position4").toggleClass("shrink right3");
+})
+.mouseleave(function() {
+$(".position1").toggleClass("shrink");
+$(".position2").toggleClass("grow left1");
+$(".position3").toggleClass("shrink right2");
+$(".position4").toggleClass("shrink right3");
+});
 ///////////////////////////////////////////////
-$( ".position3" ).mouseenter(function() {
-    $(".position1").toggleClass("toggle");
-    $(".position2").toggleClass("toggle");
-    $(".position4").toggleClass("toggle");
-  })
-  .mouseleave(function() {
-    $(".position1").toggleClass("toggle");
-    $(".position2").toggleClass("toggle");
-    $(".position4").toggleClass("toggle");
-  });
+$( ".position3").mouseenter(function() {
+$(".position1").toggleClass("shrink");
+$(".position2").toggleClass("shrink left1");
+$(".position3").toggleClass("grow left2");
+$(".position4").toggleClass("shrink right3");
+})
+.mouseleave(function() {
+$(".position1").toggleClass("shrink");
+$(".position2").toggleClass("shrink left1");
+$(".position3").toggleClass("grow left2");
+$(".position4").toggleClass("shrink right3");
+});
 ///////////////////////////////////////////////
-$( ".position4" ).mouseenter(function() {
-    $(".position1").toggleClass("toggle");
-    $(".position2").toggleClass("toggle");
-    $(".position3").toggleClass("toggle");
-  })
-  .mouseleave(function() {
-    $(".position1").toggleClass("toggle");
-    $(".position2").toggleClass("toggle");
-    $(".position3").toggleClass("toggle");
-  });
+$( ".position4").mouseenter(function() {
+$(".position1").toggleClass("shrink");
+$(".position2").toggleClass("shrink left1");
+$(".position3").toggleClass("shrink left2");
+$(".position4").toggleClass("grow left3");
+})
+.mouseleave(function() {
+$(".position1").toggleClass("shrink");
+$(".position2").toggleClass("shrink left1");
+$(".position3").toggleClass("shrink left2");
+$(".position4").toggleClass("grow left3");
+});
 </script>
- 
 </body>
 </html>
-
-<!--$(".login-btn").click(function(){
-    $(".login-dropdown").toggleClass("show");
-  });-->

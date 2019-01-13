@@ -1,0 +1,47 @@
+body{
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+}
+button{
+    position: absolute;
+    border:none;
+    padding:0px 0px;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.button1{
+    top:5vh;  
+    font-size:2vw;
+    padding:5px 20px;
+    transition:0.5s;
+    background-color: white;
+    font-weight:900;
+}
+.button1:hover{
+    background-color:darkslategrey;
+    color:orange;
+}
+/*background:linear-gradient(to left, white, black, white);*/
+.button2{
+    position: absolute;
+    left:50%;
+    top:20vh;
+    transform: translateX(-50%);
+    font-size:2vw;
+    padding:2vh 10vw;
+    background-color:darkslategrey;
+    color:orange;
+}
+.effect{
+    left:0;
+    top:0;
+    position: absolute;
+    width:0%;
+    height:100%;
+    background: linear-gradient(to left, blue, lightblue);
+    transition:0.5s;
+}
+.button2:hover .effect{
+    width:100%;
+}

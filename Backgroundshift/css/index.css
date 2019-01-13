@@ -23,6 +23,7 @@ body{
     opacity: 0.9;
 }
 .display{display:inline-block;}
+.hide{display:none;}
 
 .position1{left:6.5%;}
 .position2{left:28.5%;}

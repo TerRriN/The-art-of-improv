@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="shape position1">
-        <div class="text">
+        <div class="text hide">
             <h1>BIG TEXT</h1>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lacus vel purus lobortis pharetra eget non purus. Duis vulputate augue vel libero volutpat imperdiet. Vestibulum eget quam gravida, vulputate purus vel, dignissim massa. Nulla turpis justo, interdum vitae tempus nec, imperdiet sed dui. Nullam lacinia lacinia porttitor. Duis luctus turpis non dui faucibus, ut consectetur lectus ultricies. Aliquam viverra mi id ipsum laoreet, ac tincidunt nulla luctus. Mauris porttitor cursus neque, ac sodales libero ultricies vitae. Aenean molestie, mauris at commodo ultrices, lacus ex mollis turpis, nec interdum orci mauris ac dolor.
         </div>
@@ -34,21 +34,20 @@
     när man hovrar knappen, eller inre containern
     ska den yttre containern expandera, för att slippa
     dra bort musen från skärmen...-->
-
+    $(this).toggleClass('light', 2000).toggleClass('dark', 200);
 <script>
 $( ".position1").mouseenter(function() {
 $(".position1").toggleClass("grow");
 $(".position2").toggleClass("shrink right2");
 $(".position3").toggleClass("shrink right3");
 $(".position4").toggleClass("shrink right4");
-$(".position1 .text").toggleClass("display").delay(2000);//Hitta ett sätt där delayen funkar tsm med cssen då transition inte funkar
+$(".position1 .text").toggleClass("hide",2000).toggleClass("display",2000);
 })
 .mouseleave(function() {
 $(".position1").toggleClass("grow");
 $(".position2").toggleClass("shrink right2");
 $(".position3").toggleClass("shrink right3");
 $(".position4").toggleClass("shrink right4");
-$(".position1 .text").toggleClass("display");
 });
 ///////////////////////////////////////////////
 $( ".position2").mouseenter(function() {

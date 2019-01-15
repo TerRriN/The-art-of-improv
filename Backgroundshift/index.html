@@ -5,65 +5,95 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-        <div class="shape position1"></div>
-        <div class="shape position2"></div>
-        <div class="shape position3"></div>
-        <div class="shape position4"></div>
+    <div class="shape position1">
+        <div class="text">
+            <h1>BIG TEXT</h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lacus vel purus lobortis pharetra eget non purus. Duis vulputate augue vel libero volutpat imperdiet. Vestibulum eget quam gravida, vulputate purus vel, dignissim massa. Nulla turpis justo, interdum vitae tempus nec, imperdiet sed dui. Nullam lacinia lacinia porttitor. Duis luctus turpis non dui faucibus, ut consectetur lectus ultricies. Aliquam viverra mi id ipsum laoreet, ac tincidunt nulla luctus. Mauris porttitor cursus neque, ac sodales libero ultricies vitae. Aenean molestie, mauris at commodo ultrices, lacus ex mollis turpis, nec interdum orci mauris ac dolor.
+        </div>
+    </div>
+    <div class="shape position2">
+        <div class="text">
+            <h1>BIG TEXT</h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lacus vel purus lobortis pharetra eget non purus. Duis vulputate augue vel libero volutpat imperdiet. Vestibulum eget quam gravida, vulputate purus vel, dignissim massa. Nulla turpis justo, interdum vitae tempus nec, imperdiet sed dui. Nullam lacinia lacinia porttitor. Duis luctus turpis non dui faucibus, ut consectetur lectus ultricies. Aliquam viverra mi id ipsum laoreet, ac tincidunt nulla luctus. Mauris porttitor cursus neque, ac sodales libero ultricies vitae. Aenean molestie, mauris at commodo ultrices, lacus ex mollis turpis, nec interdum orci mauris ac dolor.
+        </div>
+    </div>
+    <div class="shape position3">
+        <div class="text">
+            <h1>BIG TEXT</h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lacus vel purus lobortis pharetra eget non purus. Duis vulputate augue vel libero volutpat imperdiet. Vestibulum eget quam gravida, vulputate purus vel, dignissim massa. Nulla turpis justo, interdum vitae tempus nec, imperdiet sed dui. Nullam lacinia lacinia porttitor. Duis luctus turpis non dui faucibus, ut consectetur lectus ultricies. Aliquam viverra mi id ipsum laoreet, ac tincidunt nulla luctus. Mauris porttitor cursus neque, ac sodales libero ultricies vitae. Aenean molestie, mauris at commodo ultrices, lacus ex mollis turpis, nec interdum orci mauris ac dolor.
+        </div>
+    </div>
+    <div class="shape position4">
+        <div class="text">
+            <h1>BIG TEXT</h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lacus vel purus lobortis pharetra eget non purus. Duis vulputate augue vel libero volutpat imperdiet. Vestibulum eget quam gravida, vulputate purus vel, dignissim massa. Nulla turpis justo, interdum vitae tempus nec, imperdiet sed dui. Nullam lacinia lacinia porttitor. Duis luctus turpis non dui faucibus, ut consectetur lectus ultricies. Aliquam viverra mi id ipsum laoreet, ac tincidunt nulla luctus. Mauris porttitor cursus neque, ac sodales libero ultricies vitae. Aenean molestie, mauris at commodo ultrices, lacus ex mollis turpis, nec interdum orci mauris ac dolor.
+        </div>
+    </div>
+
     <!--fixa en knapp som man hovrar.
     när man hovrar knappen, eller inre containern
     ska den yttre containern expandera, för att slippa
     dra bort musen från skärmen...-->
+
 <script>
 $( ".position1").mouseenter(function() {
 $(".position1").toggleClass("grow");
-$(".position2").toggleClass("shrink right1");
-$(".position3").toggleClass("shrink right2");
-$(".position4").toggleClass("shrink right3");
+$(".position2").toggleClass("shrink right2");
+$(".position3").toggleClass("shrink right3");
+$(".position4").toggleClass("shrink right4");
+$(".position1 .text").fadeIn(10000);//Hitta ett sätt där delayen funkar tsm med cssen då transition inte funkar
 })
 .mouseleave(function() {
 $(".position1").toggleClass("grow");
-$(".position2").toggleClass("shrink right1");
-$(".position3").toggleClass("shrink right2");
-$(".position4").toggleClass("shrink right3");
+$(".position2").toggleClass("shrink right2");
+$(".position3").toggleClass("shrink right3");
+$(".position4").toggleClass("shrink right4");
+$(".position1 .text").toggleClass("display");
 });
 ///////////////////////////////////////////////
 $( ".position2").mouseenter(function() {
-$(".position1").toggleClass("shrink");
-$(".position2").toggleClass("grow left1");
-$(".position3").toggleClass("shrink right2");
-$(".position4").toggleClass("shrink right3");
+$(".position1").toggleClass("shrink left2");
+$(".position2").toggleClass("grow left3");
+$(".position3").toggleClass("shrink righta");
+$(".position4").toggleClass("shrink rightb");
+$(".position2 .text").toggleClass("display");
 })
 .mouseleave(function() {
-$(".position1").toggleClass("shrink");
-$(".position2").toggleClass("grow left1");
-$(".position3").toggleClass("shrink right2");
-$(".position4").toggleClass("shrink right3");
+$(".position1").toggleClass("shrink left2");
+$(".position2").toggleClass("grow left3");
+$(".position3").toggleClass("shrink righta");
+$(".position4").toggleClass("shrink rightb");
+$(".position2 .text").toggleClass("display");
 });
 ///////////////////////////////////////////////
 $( ".position3").mouseenter(function() {
-$(".position1").toggleClass("shrink");
-$(".position2").toggleClass("shrink left1");
-$(".position3").toggleClass("grow left2");
-$(".position4").toggleClass("shrink right3");
+$(".position1").toggleClass("shrink left2");
+$(".position2").toggleClass("shrink left3");
+$(".position3").toggleClass("grow left4");
+$(".position4").toggleClass("shrink rightb");
+$(".position3 .text").toggleClass("display");
 })
 .mouseleave(function() {
-$(".position1").toggleClass("shrink");
-$(".position2").toggleClass("shrink left1");
-$(".position3").toggleClass("grow left2");
-$(".position4").toggleClass("shrink right3");
+$(".position1").toggleClass("shrink left2");
+$(".position2").toggleClass("shrink left3");
+$(".position3").toggleClass("grow left4");
+$(".position4").toggleClass("shrink rightb");
+$(".position3 .text").toggleClass("display");
 });
 ///////////////////////////////////////////////
 $( ".position4").mouseenter(function() {
-$(".position1").toggleClass("shrink");
-$(".position2").toggleClass("shrink left1");
-$(".position3").toggleClass("shrink left2");
-$(".position4").toggleClass("grow left3");
+$(".position1").toggleClass("shrink left1");
+$(".position2").toggleClass("shrink left2");
+$(".position3").toggleClass("shrink left3");
+$(".position4").toggleClass("grow left4");
+$(".position4 .text").toggleClass("display");
 })
 .mouseleave(function() {
-$(".position1").toggleClass("shrink");
-$(".position2").toggleClass("shrink left1");
-$(".position3").toggleClass("shrink left2");
-$(".position4").toggleClass("grow left3");
+$(".position1").toggleClass("shrink left1");
+$(".position2").toggleClass("shrink left2");
+$(".position3").toggleClass("shrink left3");
+$(".position4").toggleClass("grow left4");
+$(".position4 .text").toggleClass("display");
 });
 </script>
 </body>

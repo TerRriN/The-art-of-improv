@@ -10,6 +10,7 @@ button{
     transform: translateX(-50%);
 }
 
+/*BUTTON 1*/
 .button1{
     top:5vh;  
     font-size:2vw;
@@ -22,7 +23,8 @@ button{
     background-color:darkslategrey;
     color:orange;
 }
-/*background:linear-gradient(to left, white, black, white);*/
+
+/*BUTTON 2*/
 .button2{
     position: absolute;
     left:50%;
@@ -45,3 +47,5 @@ button{
 .button2:hover .effect{
     width:100%;
 }
+
+/*BUTTON 3*/

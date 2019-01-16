@@ -1,9 +1,62 @@
-.navbar{
-    background-color:blue;
+.navbar {
     margin-left:auto;
-    margin-right:auto;
-    width:2%;
-    transform: rotateZ(-40deg) rotateY(0deg) rotateX(0deg);
+    margin-right: auto;
+    margin-top:100px;
+    width: 200px;
+    height: 200px;
+    perspective: 600px;
 }
-.button{
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+}
+.cubeFace {
+    position: absolute;
+    border:1px solid black;
+    width: 200px;
+    height: 200px;
+    color:white;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.Top{
+    position: absolute;
+    border:1px solid black;
+    width: 200px;
+    color:white;
+    text-align: center;
+    font-size: 2.5em;
+    transform: rotateX( 50deg) rotateZ(-40deg) translateZ(100px);
+    background-color:blue;
+}
+.topFace{
+    padding:50px 0px;
+    border: 1px solid black;
+}
+.nr1:hover{
+    background-color: red;
+}
+.Left{
+    position: absolute;
+    border:1px solid black;
+    width: 200px;
+    color:white;
+    text-align: center;
+    font-size: 2.5em;
+    transform: rotateX(-40deg) rotateY( -50deg) translateZ(100px);
+    background-color: red;
+}
+.Right{
+    position: absolute;
+    border:1px solid black;
+    width: 200px;
+    color:white;
+    text-align: center;
+    font-size: 2.5em;
+    transform: rotateX(-40deg) rotateY( 40deg) translateZ(100px);
+    background-color:green;
 }

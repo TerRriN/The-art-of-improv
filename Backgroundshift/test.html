@@ -3,40 +3,92 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <style>      
-    .test{
-      width:200px;
-        height:200px;
-        background-color: blue;
-    }
-    .som{
-    width:100px;
-    height:100px;
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+<style>
+  body{
+    margin:0;
+    padding:0; 
+    background-color:black;
+    overflow: hidden;
+}
+.shape{
+    position:absolute;
+    width:21%;
+    height:100vh;
+    transform: skewX(-14deg);
+    transition: 0.5s;
+}
+.text{
+    display:inline-block;
+    color:white;
+    width:40%;
+    margin:0 0;
+    padding:2% 10% 7% 4%;
+    border-radius: 0 0 100% 0;
+    box-shadow: 10px 10px 100px 100px black;
     background-color: black;
-    }  
-    .display {
-        display:inline-block;
-      }
-      
-      .hide {
-        display:none;
-        transition:0.5s;
-      }
-      </style>
+    opacity: 0.9;
+}
+.hide{display:none;}
+
+.position1{left:6.5%;}
+.position2{left:28.5%;}
+.position3{left:50.5%;}
+.position4{left:72.5%;}
+
+/*Siffran i right visar vilken .position den tillhör*/
+.right2{left:87%;}
+.right3{left:93.5%;}
+.right4{left:100%;}
+
+.righta{left:87.5%;}
+.rightb{left:94%;}
+
+.left1{left:-6%;}
+.left2{left:0.5%;}
+.left3{left:7%;}
+.left4{left:13.5%;}
+
+.position1{background-color:white;}   
+
+
+.grow{
+    width:80%;
+}
+.shrink{
+    width:6%;
+}
+</style>
 </head>
 <body>
-  <div class="test">
-    <div class="som display">
+    <div class="shape position1">
+        <div class="text hide">
+            <h1>BIG TEXT</h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel lacus vel purus lobortis pharetra eget non purus. Duis vulputate augue vel libero volutpat imperdiet. Vestibulum eget quam gravida, vulputate purus vel, dignissim massa. Nulla turpis justo, interdum vitae tempus nec, imperdiet sed dui. Nullam lacinia lacinia porttitor. Duis luctus turpis non dui faucibus, ut consectetur lectus ultricies. Aliquam viverra mi id ipsum laoreet, ac tincidunt nulla luctus. Mauris porttitor cursus neque, ac sodales libero ultricies vitae. Aenean molestie, mauris at commodo ultrices, lacus ex mollis turpis, nec interdum orci mauris ac dolor.
+        </div>
     </div>
-  </div>
 
-      <script>
-      $(".test").mouseenter(function() {
-        $(".som").toggleClass('hide', 2000);
-      })
-      .mouseleave(function() {
-        $(".som").toggleClass('hide', 1000).toggleClass('display', 200);
-      });
-      </script>
+    <!--fixa en knapp som man hovrar.
+    när man hovrar knappen, eller inre containern
+    ska den yttre containern expandera, för att slippa
+    dra bort musen från skärmen...-->
+
+<script>
+$( ".position1").mouseenter(function() {
+$(".position1").toggleClass("grow");
+$(".position2").toggleClass("shrink right2");
+$(".position3").toggleClass("shrink right3");
+$(".position4").toggleClass("shrink right4");
+$(".text").toggleClass("hide", 2000, "easeOutSine");//Hitta ett sätt där delayen funkar tsm med cssen då transition inte funkar
+})
+.mouseleave(function() {
+$(".position1").toggleClass("grow");
+$(".position2").toggleClass("shrink right2");
+$(".position3").toggleClass("shrink right3");
+$(".position4").toggleClass("shrink right4");
+$(".position1 .text").toggleClass("hide");
+});
+
+</script>
 </body>
 </html>

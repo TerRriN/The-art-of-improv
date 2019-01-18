@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .scene {
+  width: 300px;
+  height: 200px;
+  perspective: 500px;
+}
+
+.box {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-50px);
+}
+.boxface{
+    position: absolute;
+}
+
+.front{
+    background-color: red;
+    width: 300px;
+    height: 200px;
+    transform: rotateY(0deg) translateZ(-50px);
+}
+
+.right{
+    background-color: green;
+    width: 100px;
+    height: 200px;
+    left:100px;
+    transform: rotateY(-90deg) translateZ(-150px);
+}
+
+.bottom {
+    background-color: blue;
+    width: 300px;
+    height: 100px;
+    top:50px;
+    transform: rotateX(90deg) translateZ(-100px);
+}    
+</style>
+</head>
+<body>
+
+        <div class="scene">
+                <div class="box">
+                  <div class="boxface front">front</div>
+                  <div class="boxface right">right</div>
+                  <div class="boxface bottom">bottom</div>
+                </div>
+              </div>
+    
+</body>
+</html>

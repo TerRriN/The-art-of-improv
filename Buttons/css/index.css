@@ -49,3 +49,12 @@ button{
 }
 
 /*BUTTON 3*/
+
+.button3{
+background-color: bisque;
+top: 35vh;
+width: 400px;
+height: 400px;
+border-radius:50px, 0px, 0px, 0px;
+clip-path: polygon(0% 0%, 100% 0%, 50% 100%, 50% 100%);
+}

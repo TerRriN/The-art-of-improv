@@ -1,0 +1,33 @@
+
+.navbarBtn{
+    font-size:2vw;
+    padding:5px 20px;
+    font-weight:900;
+    cursor: pointer;
+}
+.btnEffect{
+    position: absolute;
+    bottom:0;
+    width: 0;
+    height:10%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition:0.5s;
+    background-color: darkslategray;
+}
+.navbarBtn:hover .btnEffect{
+    width:100%;
+}
+.navbarBtn:active .btnEffect{
+    height: 100%;
+}
+.first{
+    position: absolute;
+    top:1vh;
+    left: 1%;
+}
+.second{
+    position: absolute;
+    top: 1vh;
+    left: 10%;
+}

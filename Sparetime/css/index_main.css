@@ -1,0 +1,8 @@
+#main{
+    position: absolute;
+    left: 10%;
+    top: 8vh;
+    width:80%;
+    background-color:black;
+}
+.carousel:nth-child(1){}

@@ -35,7 +35,7 @@ button{
     background-color:darkslategrey;
     color:orange;
 }
-.effect{
+.Btn2Effect{
     left:0;
     top:0;
     position: absolute;
@@ -59,12 +59,17 @@ button{
 }
 .Btn3Effect{
     position: absolute;
-    top:0;
+    bottom:0;
     width: 0;
+    height:10%;
     left: 50%;
     transform: translateX(-50%);
+    transition:0.5s;
     background-color: darkslategray;    
 }
 .button3:hover .Btn3Effect{
-    
+    width:100%;
+}
+.button3:active .Btn3Effect{
+    height: 100%;
 }

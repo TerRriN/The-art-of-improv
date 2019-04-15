@@ -1,4 +1,59 @@
+/*
+primary = #37464f
+primary light = #62717b
+primary dark = #101f27
+
+secondary = #f98b00
+secondary light = #ffbc45
+secondary dark = #c05d00
+*/
 body{
     margin:0;
     font-family: 'Roboto', sans-serif;
+}
+#main{
+    position: absolute;
+    left: 20%;
+    top: 8vh;
+    width:60%;
+    background-color:black;
+}
+.firstDiv{
+    position: absolute;
+    width: 40%;
+    height: 40vh;
+    background-color:  #f98b00;
+}
+.secondDiv{
+    position: absolute;
+    margin-left: 41%;
+    width:59%;
+    height: 40vh;
+    background-color: #ffbc45;
+    clip-path: polygon(0% 0%, 100% 0, 0% 100%, 0% 100%);
+}
+.thirdDiv{
+    position: absolute;
+    left: 41%;
+    top: 1vh;
+    width:59%;
+    height: 66.6vh;
+    background-color: #c05d00;
+    clip-path: polygon(100% 0%, 100% 40%, 0% 100%, 0% 60%);
+}
+.fourthDiv{
+    position: absolute;
+    left: 41%;
+    top: 2vh;
+    width: 59%;
+    height: 66.6vh;
+    background-color: #f98b00;
+    clip-path: polygon(100% 40%, 100% 40%, 100% 100%, 0% 100%);
+}
+.fifthDiv{
+    position: absolute;
+    top: 41vh;
+    width: 40%;
+    height: 27.6vh;
+    background-color: #ffbc45;
 }

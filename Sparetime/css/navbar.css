@@ -12,7 +12,7 @@
     height:10%;
     left: 50%;
     transform: translateX(-50%);
-    transition:0.5s;
+    transition:0.2s;
     background-color: darkslategray;
 }
 .navbarBtn:hover .btnEffect{
@@ -21,12 +21,12 @@
 .navbarBtn:active .btnEffect{
     height: 100%;
 }
-.first{
+.home{
     position: absolute;
     top:1vh;
     left: 1%;
 }
-.second{
+.developer{
     position: absolute;
     top: 1vh;
     left: 10%;

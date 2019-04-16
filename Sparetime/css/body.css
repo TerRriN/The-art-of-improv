@@ -18,42 +18,130 @@ body{
     width:60%;
     background-color:black;
 }
-.firstDiv{
+
+.leagueOfLegends{
     position: absolute;
     width: 40%;
-    height: 40vh;
-    background-color:  #f98b00;
+    height: 60vh;
+    overflow: hidden;
 }
-.secondDiv{
+.leagueOfLegendsImg{
+    position: absolute;
+    width: 100%;
+    height: 60vh;
+    transition:0.4s;
+}
+.leagueOfLegendsIcon{
+    position: absolute;
+    top: 60vh;
+    width: 100%;
+    height: 60vh;
+    transition:0.5s;
+}
+.leagueOfLegends:hover .leagueOfLegendsImg{
+    filter: blur(10px);
+}
+.leagueOfLegends:hover .leagueOfLegendsIcon{
+    transform: translateY(-65%);
+    transition-delay: 0.2s;
+}
+
+.battleField{
     position: absolute;
     margin-left: 41%;
     width:59%;
-    height: 40vh;
-    background-color: #ffbc45;
+    height: 60vh;
     clip-path: polygon(0% 0%, 100% 0, 0% 100%, 0% 100%);
+    overflow: hidden;
 }
-.thirdDiv{
+.battleFieldImg{
+    position: absolute;
+    width:100%;
+    height: 60vh;
+    transition: 0.4s;
+}
+.battleFieldIcon{
+    position: absolute;
+    top: 60vh;
+    left: 5%;
+    width:70%;
+    height: 60vh;
+    transition: 0.5s;
+}
+.battleField:hover .battleFieldImg{
+    filter: blur(10px);
+}
+.battleField:hover .battleFieldIcon{
+    transform: translateY(-90%);
+    transition-delay: 0.2s;
+}
+
+.worldOfWarships{
     position: absolute;
     left: 41%;
     top: 1vh;
     width:59%;
-    height: 66.6vh;
+    height: 100vh;
     background-color: #c05d00;
     clip-path: polygon(100% 0%, 100% 40%, 0% 100%, 0% 60%);
 }
+.worldOfWarshipsImg{
+    position: absolute;
+    width:100%;
+    height: 100vh;
+    transition: 0.4s;
+}
+.worldOfWarshipsIcon{
+    position: absolute;
+    top:100vh;
+    width: 70%;
+    height: 60vh;
+    transition: 0.5s;
+}
+.worldOfWarships:hover .worldOfWarshipsImg{
+    filter: blur(10px);
+}
+.worldOfWarships:hover .worldOfWarshipsIcon{
+    transform: translateY(-50%);
+    transition-delay: 0.2s;
+}
+
+
 .fourthDiv{
     position: absolute;
     left: 41%;
     top: 2vh;
     width: 59%;
-    height: 66.6vh;
+    height: 100vh;
     background-color: #f98b00;
     clip-path: polygon(100% 40%, 100% 40%, 100% 100%, 0% 100%);
 }
 .fifthDiv{
     position: absolute;
-    top: 41vh;
+    top: 61vh;
     width: 40%;
-    height: 27.6vh;
+    height: 41vh;
     background-color: #ffbc45;
+}
+
+.centerImage {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+}
+.resizeIcon{
+    max-width: 100%;
+    max-height: auto;
+}
+
+.bottomDiv{
+    position: absolute;
+    top: 103vh;
+    height:10vh;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
 }

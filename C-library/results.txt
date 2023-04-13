@@ -1,0 +1,83 @@
+jarvis@Jarvis:/mnt/c/Users/Jag/Desktop/The-art-of-improv/C-library$ make prime
+gcc prime.c linked_list.c common.c -o prime
+jarvis@Jarvis:/mnt/c/Users/Jag/Desktop/The-art-of-improv/C-library$ ./prime
+
+List comparisons = 763529
+Found prime numbers between 1 and 10000 = 1228
+Time measured: 0.546875 seconds.
+
+
+List comparisons = 2579766
+Found prime numbers between 1 and 20000 = 2261
+Time measured: 3.453125 seconds.
+
+
+List comparisons = 5301779
+Found prime numbers between 1 and 30000 = 3244
+Time measured: 10.531250 seconds.
+
+
+List comparisons = 8886220
+Found prime numbers between 1 and 40000 = 4202
+Time measured: 22.640625 seconds.
+
+
+List comparisons = 13245715
+Found prime numbers between 1 and 50000 = 5132
+Time measured: 40.750000 seconds.
+
+jarvis@Jarvis:/mnt/c/Users/Jag/Desktop/The-art-of-improv/C-library$ make prime
+gcc prime.c linked_list.c common.c -o prime
+jarvis@Jarvis:/mnt/c/Users/Jag/Desktop/The-art-of-improv/C-library$ ./prime
+
+List comparisons = 427226
+Found prime numbers between 1 and 10000 = 1228
+Time measured: 0.156250 seconds.
+
+
+List comparisons = 1424249
+Found prime numbers between 1 and 20000 = 2261
+Time measured: 1.015625 seconds.
+
+
+List comparisons = 2907096
+Found prime numbers between 1 and 30000 = 3244
+Time measured: 3.000000 seconds.
+
+
+List comparisons = 4853179
+Found prime numbers between 1 and 40000 = 4202
+Time measured: 6.531250 seconds.
+
+
+List comparisons = 7214539
+Found prime numbers between 1 and 50000 = 5132
+Time measured: 11.812500 seconds.
+
+jarvis@Jarvis:/mnt/c/Users/Jag/Desktop/The-art-of-improv/C-library$ make prime
+gcc prime.c linked_list.c common.c -o prime -lm
+jarvis@Jarvis:/mnt/c/Users/Jag/Desktop/The-art-of-improv/C-library$ ./prime
+
+List comparisons = 34657
+Found prime numbers between 1 and 10000 = 1228
+Time measured: 0.000000 seconds.
+
+
+List comparisons = 83435
+Found prime numbers between 1 and 20000 = 2261
+Time measured: 0.015625 seconds.
+
+
+List comparisons = 139177
+Found prime numbers between 1 and 30000 = 3244
+Time measured: 0.000000 seconds.
+
+
+List comparisons = 201029
+Found prime numbers between 1 and 40000 = 4202
+Time measured: 0.000000 seconds.
+
+
+List comparisons = 267062
+Found prime numbers between 1 and 50000 = 5132
+Time measured: 0.015625 seconds.

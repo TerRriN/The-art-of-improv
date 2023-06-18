@@ -1,75 +1,75 @@
-body{
-    margin:0;
-    font-family: 'Roboto', sans-serif;
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
 }
-button{
-    position: absolute;
-    border:none;
-    padding:0px 0px;
-    left:50%;
-    transform: translateX(-50%);
+button {
+  position: absolute;
+  border: none;
+  padding: 0px 0px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /*BUTTON 1*/
-.button1{
-    top:5vh;  
-    font-size:2vw;
-    padding:5px 20px;
-    transition:0.5s;
-    background-color: white;
-    font-weight:900;
+.button1 {
+  top: 5vh;
+  font-size: 2vw;
+  padding: 5px 20px;
+  transition: 0.5s;
+  background-color: white;
+  font-weight: 900;
 }
-.button1:hover{
-    background-color:darkslategrey;
-    color:orange;
+.button1:hover {
+  background-color: #2f4f4f;
+  color: #ffa500;
 }
 
 /*BUTTON 2*/
-.button2{
-    position: absolute;
-    left:50%;
-    top:20vh;
-    transform: translateX(-50%);
-    font-size:2vw;
-    padding:2vh 10vw;
-    background-color:darkslategrey;
-    color:orange;
+.button2 {
+  position: absolute;
+  left: 50%;
+  top: 20vh;
+  transform: translateX(-50%);
+  font-size: 2vw;
+  padding: 2vh 10vw;
+  background-color: darkslategrey;
+  color: orange;
 }
-.Btn2Effect{
-    left:0;
-    top:0;
-    position: absolute;
-    width:0%;
-    height:100%;
-    background: linear-gradient(to left, blue, lightblue);
-    transition:0.5s;
+.Btn2Effect {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(to left, blue, lightblue);
+  transition: 0.5s;
 }
-.button2:hover .Btn2Effect{
-    width:100%;
+.button2:hover .Btn2Effect {
+  width: 100%;
 }
 
 /*BUTTON 3*/
 /*KOLLA Rainbow Six Sieage, om du inte kommer ihåg... */
-.button3{
-    top:35vh;  
-    font-size:2vw;
-    padding:5px 20px;
-    background-color: white;
-    font-weight:900;
+.button3 {
+  top: 35vh;
+  font-size: 2vw;
+  padding: 5px 20px;
+  background-color: white;
+  font-weight: 900;
 }
-.Btn3Effect{
-    position: absolute;
-    bottom:0;
-    width: 0;
-    height:10%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition:0.5s;
-    background-color: darkslategray;    
+.Btn3Effect {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.5s;
+  background-color: darkslategray;
 }
-.button3:hover .Btn3Effect{
-    width:100%;
+.button3:hover .Btn3Effect {
+  width: 100%;
 }
-.button3:active .Btn3Effect{
-    height: 100%;
+.button3:active .Btn3Effect {
+  height: 100%;
 }

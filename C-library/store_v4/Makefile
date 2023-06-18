@@ -16,6 +16,22 @@ cart.o: cart.c
 unit_tests.o: unit_tests.c
 	$(CC) $(CFLAGS) -c $< -o $(BUILD_DIR)/$@
 
+# Rule for compiling merch.c into merch.o
+merch.o: merch.c
+	$(CC) $(CFLAGS) -c $< -o $(BUILD_DIR)/$@
+
+# Rule for compiling shelf.c into shelf.o
+shelf.o: shelf.c
+	$(CC) $(CFLAGS) -c $< -o $(BUILD_DIR)/$@
+
+# Rule for compiling merch_tests.c into merch_tests.o
+merch_tests.o: merch_tests.c
+	$(CC) $(CFLAGS) -c $< -o $(BUILD_DIR)/$@
+
+# Rule for compiling shelf_tests.c into shelf_tests.o
+shelf_tests.o: shelf_tests.c
+	$(CC) $(CFLAGS) -c $< -o $(BUILD_DIR)/$@
+
 # Rule for compiling common.c into common.o
 common.o: $(UTILITIES_DIR)/common.c
 	$(CC) $(CFLAGS) -c $< -o $(BUILD_DIR)/$@
@@ -44,6 +60,16 @@ gdbtest: store.o cart.o common.o unit_tests.o hash_table.o linked_list.o
 
 # Rule for building valmenu
 valmenu: menu.o utils.o store.o cart.o common.o hash_table.o linked_list.o
+	$(CC) $(addprefix $(BUILD_DIR)/, $^) -o $(BUILD_DIR)/$@ $(LDFLAGS)
+	valgrind --leak-check=full $(BUILD_DIR)/$@
+
+# Rule for building valmerch
+valmerch: merch_tests.o common.o hash_table.o linked_list.o merch.o
+	$(CC) $(addprefix $(BUILD_DIR)/, $^) -o $(BUILD_DIR)/$@ $(LDFLAGS)
+	valgrind --leak-check=full $(BUILD_DIR)/$@
+
+# Rule for building valshelf
+valshelf: shelf_tests.o common.o hash_table.o linked_list.o shelf.o
 	$(CC) $(addprefix $(BUILD_DIR)/, $^) -o $(BUILD_DIR)/$@ $(LDFLAGS)
 	valgrind --leak-check=full $(BUILD_DIR)/$@
 

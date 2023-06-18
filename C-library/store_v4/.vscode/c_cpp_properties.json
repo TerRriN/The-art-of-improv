@@ -15,7 +15,7 @@
         {
             "name": "Wsl",
             "includePath": [
-                "c:\\Users\\Jag\\Desktop\\The-art-of-improv\\C-library\\store_v4/**"
+                "/mnt/c/Users/Jag/Desktop/The-art-of-improv/C-library/store_v4/"
             ],
             "defines": [
                 "_DEBUG",

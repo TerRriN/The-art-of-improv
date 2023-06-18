@@ -8,6 +8,11 @@
     "hash_table.h": "c",
     "string.h": "c",
     "stdbool.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "typeinfo": "c",
+    "shelf.h": "c",
+    "ctype.h": "c",
+    "random": "c",
+    "cctype": "c"
   }
 }

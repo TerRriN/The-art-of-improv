@@ -78,7 +78,13 @@ option_t ioopm_remove_merch(ioopm_store_t *store, elem_t name);
 void ioopm_destroy_store(ioopm_store_t *store);
 
 /**
- * Change...
+ * @brief Edits a value of a specified merchandise
+ * 
+ * @param store struct containgin all ht
+ * @param merch_name the sought merchandise
+ * @param path_selector the sought value to be changed
+ * @param new_value the new value
+ * @return Success if merch was successfully edited, otherwise Failure
 */
 option_t ioopm_edit_merch(ioopm_store_t *store, elem_t merch_name, elem_t path_selector, elem_t new_value);
 

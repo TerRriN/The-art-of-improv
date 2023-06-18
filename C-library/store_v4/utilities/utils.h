@@ -5,6 +5,13 @@
 #include <string.h>
 #include <stdbool.h>
 
+/**
+ * @file utils.h
+ * @author Oskar Nylin
+ * @date Unknown
+ * @brief A funky ass utils file that was part of an IOOPM assignment
+*/
+
 typedef union
 {
     int int_value;

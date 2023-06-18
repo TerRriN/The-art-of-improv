@@ -108,8 +108,7 @@ void destroy_merchandise(ioopm_store_t *store)
     // Frees all merchandise
     ioopm_linked_list_t *all_merch = ioopm_hash_table_values(store->merchandise_ht);
     ioopm_hash_table_destroy(store->merchandise_ht);
-    for (int i = 0; i < ioopm_linked_list_size(all_merch); i++)
-    {
+    for (int i = 0; i < ioopm_linked_list_size(all_merch); i++){
         merch_t *merch = ioopm_linked_list_get(all_merch, i).point;
         free(merch->name.str_val);
         free(merch->description.str_val);
@@ -179,28 +178,16 @@ void ioopm_destroy_store(ioopm_store_t *store)
  * @param new_name the new name of the merchandise
  * @return option_t Success if the name was changed, Failure if the name already exists
  */
-void edit_merch_name(ioopm_store_t *store, merch_t *merch, elem_t new_name)
-{
-    if (!ioopm_hash_table_lookup(store->merchandise_ht, new_name).success) // Check that new_name dont exist
-    {
+option_t edit_merch_name(ioopm_store_t *store, merch_t *merch, elem_t new_name){
+    if (!ioopm_hash_table_lookup(store->merchandise_ht, new_name).success){ // Check that new_name dont exist
         ioopm_hash_table_remove(store->merchandise_ht, merch->name);
         free(merch->name.str_val);
         merch->name = new_name;
         ioopm_hash_table_insert(store->merchandise_ht, merch->name, (elem_t){.point = merch});
-    }
-    else
-    {
-        printf("Merch already exist\n");
-    }
-
-    /*option_t o = ioopm_hash_table_lookup(store->merchandise_ht, new_name);
-    if(!o.success){
-        free(merch->name.str_val);
-        merch->name = new_name;
         return Success(new_name);
     }
     free(new_name.str_val);
-    return Failure();*/
+    return Failure();
 }
 
 /**
@@ -233,117 +220,67 @@ option_t edit_merch_price(ioopm_store_t *store, merch_t *merch, elem_t new_price
 }
 
 // Assert that ioopm_check_if_in_cart() has been called before
-option_t ioopm_edit_merch(ioopm_store_t *store, elem_t merch_name, elem_t path_selector, elem_t new_value)
-{
+option_t ioopm_edit_merch(ioopm_store_t *store, elem_t merch_name, elem_t path_selector, elem_t new_value){
     option_t o = ioopm_hash_table_lookup(store->merchandise_ht, merch_name);
-    if (o.success)
-    {
+    free(merch_name.str_val);
+    if (o.success){
         merch_t *merch = o.value.point;
-        if (path_selector.char_val == 'A')
-        {
-            edit_merch_name(store, merch, new_value);
-
-            // return edit_merch_name(store, merch, new_value);
-        }
-        else if (path_selector.char_val == 'B')
-        {
+        if (path_selector.char_val == 'A'){
+            return edit_merch_name(store, merch, new_value);
+        }else if (path_selector.char_val == 'B'){
             return edit_merch_description(store, merch, new_value);
-        }
-        else if (path_selector.char_val == 'C')
-        {
+        }else if (path_selector.char_val == 'C'){
             return edit_merch_price(store, merch, new_value);
         }
     }
-    free(merch_name.str_val);
     free(new_value.str_val);
     return Failure();
 }
 
-/*void edit_merch_help(ioopm_store_t *store, elem_t old_name, elem_t new_name, elem_t new_description, elem_t new_price)
-{
-    merch_t *m = ioopm_hash_table_lookup(store->merchandise_ht, old_name).value.point;
-
-    ioopm_hash_table_remove(store->merchandise_ht, old_name);
-    free(m->name.str_val);
-    free(m->description.str_val);
-    m->name = new_name;
-    m->description = new_description;
-    m->price = new_price;
-    ioopm_hash_table_insert(store->merchandise_ht, new_name, (elem_t){.point = m});
-
-}
-
-option_t ioopm_edit_merch(ioopm_store_t *store, elem_t old_name, elem_t new_name, elem_t new_description, elem_t new_price){
-    option_t o = ioopm_hash_table_lookup(store->merchandise_ht, old_name);
-    if (o.success && !ioopm_hash_table_has_key(store->merchandise_ht, new_name) && !check_if_in_cart(store, old_name))
-    {
-        edit_merch_help(store, old_name, new_name, new_description, new_price);
-        free(old_name.str_val);
-        return Success(new_price);
-    }
-    free(old_name.str_val);
-    free(new_name.str_val);
-    free(new_description.str_val);
-    return Failure();
-}*/
-
-void ioopm_list_warehouse(ioopm_store_t *store)
-{
+void ioopm_list_warehouse(ioopm_store_t *store){
     ioopm_linked_list_t *list = ioopm_hash_table_values(store->warehouse_ht);
-    for (int i = 0; i < ioopm_linked_list_size(list); i++)
-    {
+    for (int i = 0; i < ioopm_linked_list_size(list); i++){
         shelf_t *shelf = ioopm_linked_list_get(list, i).point;
         printf(" %d) Shelf: %s, amount: %d\n", (i + 1), shelf->shelf.str_val, shelf->stock.int_val);
     }
     ioopm_linked_list_destroy(list);
 }
 
-void ioopm_list_merchandise(ioopm_store_t *store)
-{
+void ioopm_list_merchandise(ioopm_store_t *store){
     ioopm_linked_list_t *list = ioopm_hash_table_values(store->merchandise_ht);
-    for (int i = 0; i < ioopm_linked_list_size(list); i++)
-    {
+    for (int i = 0; i < ioopm_linked_list_size(list); i++){
         merch_t *m = ioopm_linked_list_get(list, i).point;
         printf("  %d) Name: %s, Description: %s, Price: %d\n", (i + 1), m->name.str_val, m->description.str_val, m->price.int_val);
     }
     ioopm_linked_list_destroy(list);
 }
 
-int check_amount(ioopm_store_t *store, merch_t *m)
-{
+int check_amount(ioopm_store_t *store, merch_t *m){
     ioopm_linked_list_t *list_of_shelfs = m->location.point;
-    if (ioopm_linked_list_size(list_of_shelfs) == 0)
-    {
+    if (ioopm_linked_list_size(list_of_shelfs) == 0){
         return 0;
     }
+
     int total_stock = 0;
-    for (int i = 0; i < ioopm_linked_list_size(list_of_shelfs); i++)
-    {
+    for (int i = 0; i < ioopm_linked_list_size(list_of_shelfs); i++){
         shelf_t *s = ioopm_hash_table_lookup(store->warehouse_ht, ioopm_linked_list_get(list_of_shelfs, i)).value.point;
         total_stock += s->stock.int_val;
     }
     return total_stock;
 }
 
-bool in_stock_helper(ioopm_store_t *store, merch_t *m, int amount)
-{
+bool in_stock_helper(ioopm_store_t *store, merch_t *m, int amount){
     int total_stock = check_amount(store, m);
-
-    if (total_stock >= amount)
-    {
+    if (total_stock >= amount){
         return true;
-    }
-    else
-    {
+    }else{
         return false;
     }
 }
 
-bool ioopm_in_stock(ioopm_store_t *store, elem_t merch_name, int amount)
-{
+bool ioopm_in_stock(ioopm_store_t *store, elem_t merch_name, int amount){
     option_t o = ioopm_hash_table_lookup(store->merchandise_ht, merch_name);
-    if (o.success)
-    {
+    if (o.success){
         merch_t *m = o.value.point;
         free(merch_name.str_val);
         return in_stock_helper(store, m, amount);
@@ -443,3 +380,14 @@ option_t ioopm_replenish_stock(ioopm_store_t *store, elem_t name, elem_t shelf, 
 
     return Failure();
 }
+/*
+mayby WRITE FUNCTIONs:
+
+    get merch
+        get name
+        get description
+        get price
+    get shelf
+        get merch on shelf
+        get shelf
+        get amount*/

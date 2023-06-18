@@ -8,14 +8,20 @@
 #define ioopm_add_merch_dup(store, name, desc, price) \
     ioopm_add_merch(store, (elem_t){.str_val = strdup(name)}, (elem_t){.str_val = strdup(desc)}, (elem_t){.int_val = price})
 
-int init_suite(void)
-{
+int init_suite(void){
     printf("\n");
     return 0;
 }
-int clean_suite(void) { return 0; }
+int clean_suite(void) { //CUnit cant print number of passed suites
+    return 0; 
+}
 
-
+///////////////////MERCH TEST CASES///////////////////
+/*
+    Work in progress to extract all merch functions from store.c
+    to merch.c
+*/
+//////////////////////////////////////////////////////
 ///////////////////STORE TEST CASES///////////////////
 void test_create_destroy_store()
 {
@@ -178,15 +184,56 @@ void test_edit_non_existing_merch(){
 void test_edit_merch_name(){
     ioopm_store_t *store = ioopm_create_store();
     ioopm_add_merch_dup(store, "Banan", "Gul", 20);
+    
     CU_ASSERT_TRUE(ioopm_edit_merch(store, (elem_t){.str_val = strdup("Banan")}, (elem_t){.char_val = 'A'}, (elem_t){.str_val = strdup("Apple")}).success);
+
+    elem_t tmp = {.str_val = strdup("Apple")};
+    merch_t *m = ioopm_hash_table_lookup(store->merchandise_ht, tmp).value.point;
+    CU_ASSERT_TRUE(strcmp(m->name.str_val, "Apple") == 0);
+    CU_ASSERT_TRUE(strcmp(m->description.str_val, "Gul") == 0);
+    CU_ASSERT_TRUE(m->price.int_val == 20);
+
+    free(tmp.str_val);
     ioopm_destroy_store(store);
 }
-/*
+
+void test_edit_merch_description(){
+    ioopm_store_t *store = ioopm_create_store();
+    ioopm_add_merch_dup(store, "Banan", "Gul", 20);
+    
+    CU_ASSERT_TRUE(ioopm_edit_merch(store, (elem_t){.str_val = strdup("Banan")}, (elem_t){.char_val = 'B'}, (elem_t){.str_val = strdup("Rod")}).success);
+
+    elem_t tmp = {.str_val = strdup("Banan")};
+    merch_t *m = ioopm_hash_table_lookup(store->merchandise_ht, tmp).value.point;
+    CU_ASSERT_TRUE(strcmp(m->name.str_val, "Banan") == 0);
+    CU_ASSERT_TRUE(strcmp(m->description.str_val, "Rod") == 0);
+    CU_ASSERT_TRUE(m->price.int_val == 20);
+
+    free(tmp.str_val);
+    ioopm_destroy_store(store);
+}
+
+void test_edit_merch_price(){
+    ioopm_store_t *store = ioopm_create_store();
+    ioopm_add_merch_dup(store, "Banan", "Gul", 20);
+    
+    CU_ASSERT_TRUE(ioopm_edit_merch(store, (elem_t){.str_val = strdup("Banan")}, (elem_t){.char_val = 'C'}, (elem_t){.int_val = 15}).success);
+
+    elem_t tmp = {.str_val = strdup("Banan")};
+    merch_t *m = ioopm_hash_table_lookup(store->merchandise_ht, tmp).value.point;
+    CU_ASSERT_TRUE(strcmp(m->name.str_val, "Banan") == 0);
+    CU_ASSERT_TRUE(strcmp(m->description.str_val, "Gul") == 0);
+    CU_ASSERT_TRUE(m->price.int_val == 15);
+
+    free(tmp.str_val);
+    ioopm_destroy_store(store);
+}
+
 void test_edit_removed_merch(){
     ioopm_store_t *store = ioopm_create_store();
     ioopm_add_merch_dup(store, "Banan", "Gul", 20);
     ioopm_remove_merch(store, (elem_t){.str_val = strdup("Banan")});
-    CU_ASSERT_FALSE(ioopm_edit_merch(store, (elem_t){.str_val = strdup("Banan")}, (elem_t){.str_val = strdup("Apple")}, (elem_t){.str_val = strdup("Rod")}, (elem_t){.int_val = 15}).success);
+    CU_ASSERT_FALSE(ioopm_edit_merch(store, (elem_t){.str_val = strdup("Banan")}, (elem_t){.char_val = 'A'}, (elem_t){.str_val = strdup("Apple")}).success);
     ioopm_destroy_store(store);   
 }
 
@@ -194,10 +241,10 @@ void test_edit_merch_with_stock(){
     ioopm_store_t *store = ioopm_create_store();
     ioopm_add_merch_dup(store, "Banan", "Gul", 20);
     ioopm_replenish_stock(store, (elem_t){.str_val = strdup("Banan")}, (elem_t){.str_val = strdup("A01")}, (elem_t){.int_val = 10});
-    CU_ASSERT_TRUE(ioopm_edit_merch(store, (elem_t){.str_val = strdup("Banan")}, (elem_t){.str_val = strdup("Apple")}, (elem_t){.str_val = strdup("Rod")}, (elem_t){.int_val = 15}).success);
+    CU_ASSERT_TRUE(ioopm_edit_merch(store, (elem_t){.str_val = strdup("Banan")}, (elem_t){.char_val = 'A'}, (elem_t){.str_val = strdup("Apple")}).success);
     CU_ASSERT_TRUE(ioopm_in_stock(store, (elem_t){.str_val = strdup("Apple")}, 10));
     ioopm_destroy_store(store);   
-}*/
+}
 
 //////////////////////////////////////////////////////
 //////////////////CART TEST CASES/////////////////////
@@ -431,6 +478,10 @@ int main()
         (CU_add_test(store_test_suite, "Test replenish multiple merch", test_replenish_multiple_merch) == NULL) ||
         (CU_add_test(store_test_suite, "Edit non existing merch", test_edit_non_existing_merch) == NULL) ||
         (CU_add_test(store_test_suite, "Edit merch name", test_edit_merch_name) == NULL) ||
+        (CU_add_test(store_test_suite, "Edit merch desc", test_edit_merch_description) == NULL) ||
+        (CU_add_test(store_test_suite, "Edit merch price", test_edit_merch_price) == NULL) ||
+        (CU_add_test(store_test_suite, "Test edit removed merch", test_edit_removed_merch) == NULL) ||
+        (CU_add_test(store_test_suite, "Edit merch with stock", test_edit_merch_with_stock) == NULL) ||
 
         (CU_add_test(cart_test_suite, "Creat and destroy cart", test_create_destroy_cart) == NULL) ||
         (CU_add_test(cart_test_suite, "Creat cart and check for null", test_create_cart_check_for_null) == NULL) ||

@@ -10,7 +10,7 @@ int list_accesses;
  * This program demonstrates the power of refactoring
  * by calculating all prime numbers between 1 and 50000
  * in different ways
- * OBS: The first version takes over 40s
+ * OBS: The first version can take more than 40s
 */
 
 /************************************************************************/
@@ -176,9 +176,61 @@ void v4_find_prime_numbers(int interval){
 /************************************************************************/
 /************************************************************************/
 
+/************************************************************************/
+/*                                  v5                                  */
+/************************************************************************/
+bool v5_compare_prime_numbers(int *prime_numbers, int x, int filled_array_slots){
+    int sqx = sqrt(x);
+    int fetched_nr = 0;
+    for(int i = 0; i < filled_array_slots; i++){
+        fetched_nr = prime_numbers[i];
+        list_accesses++;
+        if(x % fetched_nr == 0){
+            return false;
+        }else if(sqx < fetched_nr){
+            prime_numbers[filled_array_slots] = x;
+            break;
+        }
+    }
+    return true;
+}
+
+void v5_find_prime_numbers(int interval){
+    int *array = malloc(sizeof(int)*5132); //NEW
+    list_accesses = 0;
+    int filled_array_slots = 1; //NEW
+    array[0] = 2;
+    const bool lookup_table[10] = {false, true, false, true, false, false, false, true, false, true};
+
+    clock_t start = clock();
+    for(int i = 3; i < interval; i+=2){ //NEW
+        int last_digit = i % 10;
+        if(lookup_table[last_digit]){
+            if(v5_compare_prime_numbers(array, i, filled_array_slots)) filled_array_slots++;
+        }
+    }
+    clock_t end = clock();
+    double temp = end - start;
+    double elapsed = temp/CLOCKS_PER_SEC;
+
+    for(int i = 0; i < 5132; i++){
+        printf("%d\n", array[i]);
+    }
+
+    printf("\n");
+    printf("Version 5\n");
+    printf("List comparisons = %d\n",list_accesses);
+    printf("Found prime numbers between 1 and %d = %d\n", interval, filled_array_slots);
+    printf("Time measured: %.6f seconds.\n", elapsed);
+    printf("\n");
+}
+/************************************************************************/
+/************************************************************************/
+
 void main(){
     v1_find_prime_numbers(50000);
     v2_find_prime_numbers(50000);
     v3_find_prime_numbers(50000);
     v4_find_prime_numbers(50000);
+    v5_find_prime_numbers(50000);
 }

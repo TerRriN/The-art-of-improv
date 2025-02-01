@@ -212,11 +212,7 @@ void v5_find_prime_numbers(int interval){
     clock_t end = clock();
     double temp = end - start;
     double elapsed = temp/CLOCKS_PER_SEC;
-
-    for(int i = 0; i < 5132; i++){
-        printf("%d\n", array[i]);
-    }
-
+    
     printf("\n");
     printf("Version 5\n");
     printf("List comparisons = %d\n",list_accesses);

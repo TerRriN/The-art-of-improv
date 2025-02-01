@@ -10,13 +10,13 @@ if [ ${#files[@]} -eq 0 ]; then
 fi
 
 total_time=0  # Initialize total time counter
-N_values=(10 50 100 250 500 1000 2500 5000 7500 10000)  # Set N values
+N_values=(10 50 100 250 500 1000 2500 5000 7500 10000 100000)  # Set N values
 
 # Print all filenames and calculate total time
-for i in {0..9}; do
+for i in "${!N_values[@]}"; do
     N=${N_values[i]}
     file=${files[i]}
-    output=$(./quick_sort "$file" $N)  # Run quick_sort and capture output
+    output=$(./quick "$file" $N)  # Run quick_sort and capture output
     echo "$output"  # Print output
     time=$(echo "$output" | grep -oP '(?<=Time: )[0-9.]+' | awk '{print $1}')  # Extract time from output
     if [ ! -z "$time" ]; then  # Check if time is not empty

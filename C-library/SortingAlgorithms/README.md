@@ -1,4 +1,5 @@
 Unsorted data? Go to: https://www.random.org/integers/?mode=advanced and generate a list of integers.
+The common sorting algorithms are taken from: https://www.geeksforgeeks.org/
 
 **Author**: Oskar N
 

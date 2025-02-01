@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# List all files in the directory and store them in an array
+# List all files in the array and store them in an array
 files=(unsorted_data/*)
 
 # Check if there are any files in the directory
@@ -9,14 +9,14 @@ if [ ${#files[@]} -eq 0 ]; then
     exit 0
 fi
 
-total_time=0  # Initialize total time counter
-N_values=(10 50 100 250 500 1000 2500 5000 7500 10000 100000)  # Set N values
+total_time=0 # Initialize total time counter
+N_values=(10 50 100 250 500 1000 2500 5000 7500 10000 50000) # Set N values
 
 # Print all filenames and calculate total time
-for i in "${!N_values[@]}"; do
+for i in {0..10}; do
     N=${N_values[i]}
     file=${files[i]}
-    output=$(./quick "$file" $N)  # Run quick_sort and capture output
+    output=$(./bubble "$file" $N)  # Run quick_sort and capture output
     echo "$output"  # Print output
     time=$(echo "$output" | grep -oP '(?<=Time: )[0-9.]+' | awk '{print $1}')  # Extract time from output
     if [ ! -z "$time" ]; then  # Check if time is not empty

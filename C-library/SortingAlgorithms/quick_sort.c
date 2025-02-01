@@ -16,27 +16,7 @@
  * - This implementation uses random pivots.
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <stdbool.h>
-
-int *create_array(int N){
-    return malloc(sizeof(int)*N);
-}
-
-void fetch_values(char *file_name, int *data){
-    FILE *file;
-    file = fopen(file_name, "r");
-    int value = 0;
-    int i = 0;
-    while(!feof(file)){
-        fscanf(file, "%d", &value);
-        data[i] = value;
-        i++;
-    }
-    fclose(file);
-}
+#include "common.h"
 
 /**
  * Implemented with https://www.geeksforgeeks.org/quick-sort-in-c/
@@ -72,19 +52,9 @@ void quick_sort(int *data, int left, int right) {
     }
 }
 
-bool check_sorting(int *data, int N) {
-    for (int i = 0; i < N - 1; i++) {
-        if (data[i] > data[i + 1]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main(int charc, char *argv[]){
-    if(charc != 3){
-        printf("./quick_sort file_path n_values\n");
-        return -1;
+    if(!check_input(charc, argv)){
+        return 1;
     }
 
     char *file_name = argv[1];

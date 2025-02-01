@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # List all files in the directory and store them in an array
-files=(unsorted_data/*)
+files=(input/ss9/*)
+N_threads=4 # Set number of threads
 
 # Check if there are any files in the directory
 if [ ${#files[@]} -eq 0 ]; then
@@ -10,13 +11,11 @@ if [ ${#files[@]} -eq 0 ]; then
 fi
 
 total_time=0  # Initialize total time counter
-N_values=(10 50 100 250 500 1000 2500 5000 7500 10000 100000)  # Set N values
+file_count=0  # Initialize file count
 
 # Print all filenames and calculate total time
-for i in "${!N_values[@]}"; do
-    N=${N_values[i]}
-    file=${files[i]}
-    output=$(./quick "$file" $N)  # Run quick_sort and capture output
+for file in "${files[@]}"; do
+    output=$(./sudoku "$file" 9 $N_threads)  # Run sudoku and capture output
     echo "$output"  # Print output
     time=$(echo "$output" | grep -oP '(?<=Time: )[0-9.]+' | awk '{print $1}')  # Extract time from output
     if [ ! -z "$time" ]; then  # Check if time is not empty
@@ -26,7 +25,8 @@ for i in "${!N_values[@]}"; do
 done
 
 if [ "$file_count" -gt 0 ]; then
-    echo "Total time: $total_time seconds"  # Print total time
+    average_time=$(awk "BEGIN {print $total_time / $file_count}")  # Calculate average time
+    echo "Average time for ${file_count} files: ${average_time}s"
 else
     echo "No files with time information found."
 fi

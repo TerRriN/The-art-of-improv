@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # List all files in the directory and store them in an array
-files=(input/ss9/*)
+files=(input/txt9/*)
 N_threads=4 # Set number of threads
 
 # Check if there are any files in the directory

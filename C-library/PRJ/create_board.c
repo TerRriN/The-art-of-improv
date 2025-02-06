@@ -12,7 +12,7 @@
 /**
  * @file create_board.c
  * 
- * @brief Creates 100 9x9 Sudoku boards with varying number of empty cells,
+ * @brief Creates 100 NxN Sudoku boards with varying number of empty cells,
  * all of wich have the same solution as the original board.
  * Hardcoded original board (and other values can easily be changed inside the code).
  */
@@ -22,14 +22,33 @@ typedef struct cord{
     int y;
 } cord_t;
 
+void insert_input(char original_board[N][N], const char *board_str){
+    char *token;
+    char *str = strdup(board_str); // Duplicate input to avoid modifying original
+    int value, i = 0, j = 0;
+
+    token = strtok(str, ",");
+    while (token != NULL) {
+        value = atoi(token);                // Convert string to integer
+        original_board[i][j] = value + '0'; // Convert integer to char
+        j++;
+        if(j == N){
+            j = 0;
+            i++;
+        }
+        token = strtok(NULL, ",");
+    }
+    free(str);
+}
+
 /**
  * @brief Generate random pair of x and y coordinates
  * 
  * @param cord Pointer to coordinates
  */
 void random_pair(cord_t *cord){
-    cord->x = rand() % (9);
-    cord->y = rand() % (9);
+    cord->x = rand() % (N);
+    cord->y = rand() % (N);
 }
 
 /**
@@ -83,7 +102,7 @@ void empty_board(char board[N][N]){
 void create_file(char board[N][N], int file_count){
     FILE *f;
     char filename[256];
-    sprintf(filename, "input/txt9/9x9board%d.txt", file_count);
+    sprintf(filename, "input/txt%d/%dx%dboard%d.txt", N, N, N, file_count);
     f = fopen(filename, "w");
     if (f == NULL) {
         perror("fopen");
@@ -142,9 +161,6 @@ bool Solve(char board[N][N], unAssigned_t **unAssignInd, int N_unAssign, bool *s
  * @brief Modified version of main and Solve. See main.c for original main and Solve functions
  */
 bool solve_board(char board[N][N]){
-    N = 9;
-    sqrt_N = 3;
-
     bool solution = false;
     char possibilities[N][N][N];
     set_possibilities(board, possibilities);            // Set possibilities
@@ -155,6 +171,7 @@ bool solve_board(char board[N][N]){
         return check_entire_board(board);
     }else{
         unAssigned_t **unAssignInd = set_unassigned(board, N_unAssign); // Set unassigned cells (x, y)
+        omp_set_num_threads(10);
         #pragma omp parallel
         {
             #pragma omp master
@@ -188,14 +205,19 @@ void create_board(char original_board[N][N], int file_count){
     char test_board[N][N];
     int empty_cells = count_unassigned(new_board);
     bool assigned = true;
-    int max = 64;                               // Max number of empty cells (81 - 64 = 17)
+    int max = 150;                               // Max number of empty cells
     int attempts = 0;
-
     double start = get_wall_time();             // Start timer
+
     while(empty_cells < max){
         attempts++;
         if(attempts > 10000){                   // Max number of attempts
             printf("Max number of attempts reached\n");
+            break;
+        }
+
+        if(get_wall_time() - start > 25){       // Max time
+            printf("Max time reached\n");
             break;
         }
                                                 
@@ -216,33 +238,44 @@ void create_board(char original_board[N][N], int file_count){
         }
         assigned = true;
     }
+
     double end = get_wall_time();               // End timer
     create_file(new_board, file_count);         // Create file
     printf("Empty cells: %d\n", empty_cells);   // Print number of empty cells
     printf("Time: %f\n", end-start);            // Print time
-    sud_display_board_std(new_board);           // Display board
+    //sud_display_board_std(new_board);           // Display board
+    print_board(new_board);                     // Print board1
     free(cord);
 }
 
 
 int main(){
-    N = 9;
-    sqrt_N = 3;
+    N = 16;
+    sqrt_N = 4;
     char original_board[N][N];
-    char *board_str = "951782436834196275276543198748351629369427851512968743485219367127635984693874512";
-    
-    // Fill original/new-board with board_str
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < N; j++){
-            original_board[i][j] = board_str[i*N+j];
-        }
-    }
+    //const char *board_str = "951782436834196275276543198748351629369427851512968743485219367127635984693874512";
+    const char *board_str2 =  "9,11,13,5,12,10,16,1,14,15,2,4,6,8,7,3,"
+                        "4,15,6,10,13,14,7,3,11,9,8,16,12,2,1,5,"
+                        "16,12,3,8,11,2,15,9,5,6,1,7,14,4,13,10,"
+                        "14,7,1,2,6,4,8,5,12,10,3,13,15,11,9,16,"
+                        "3,6,16,11,5,1,14,8,4,2,15,9,7,13,10,12,"
+                        "7,2,10,9,3,15,13,6,8,11,12,14,4,16,5,1,"
+                        "13,14,12,15,10,16,11,4,7,3,5,1,8,6,2,9,"
+                        "8,4,5,1,2,12,9,7,6,16,13,10,3,15,14,11,"
+                        "2,5,8,12,14,13,1,16,3,7,11,15,9,10,6,4,"
+                        "15,10,7,4,8,11,12,2,1,14,9,6,5,3,16,13,"
+                        "6,9,14,13,7,3,4,10,2,12,16,5,11,1,15,8,"
+                        "1,16,11,3,9,5,6,15,13,4,10,8,2,14,12,7,"
+                        "10,1,9,7,4,8,2,12,15,13,14,11,16,5,3,6,"
+                        "5,13,15,6,16,9,3,14,10,8,4,12,1,7,11,2,"
+                        "12,8,2,14,1,6,10,11,16,5,7,3,13,9,4,15,"
+                        "11,3,4,16,15,7,5,13,9,1,6,2,10,12,8,14";
 
-    srand((unsigned int)time(NULL));        // Seed random number generator
-    sud_display_board_std(original_board);  // Display original board
-    
-    int file_count = 1;
-    while(file_count <= 100){
+    insert_input(original_board, board_str2);   // Insert board string to board
+    srand((unsigned int)time(NULL));            // Seed random number generator
+    print_board(original_board);                // Print board
+    int file_count = 5;
+    while(file_count <= 10){
         printf("=====================================\n");
         create_board(original_board, file_count);
         printf("=====================================\n");
